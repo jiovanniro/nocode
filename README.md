@@ -74,9 +74,9 @@ Your printPlacesLived method should now like this:
 ```
 In the terminal type: node scripts.js 
 
-Notice that the first time we log this the Person class is printed but when we log this inside of the forEach function, *this* is undefined and so is 'name'.
+Notice that the first time we log *this* the Person class is printed but when we log *this* inside of the forEach function, *this* is undefined and so is 'name'.
 
-Lets find out why in Phase 2.
+Lets fix this in Phase 2.
 
 ### PHASE TWO
 
@@ -98,6 +98,12 @@ In the terminal type: node scripts.js
 
 You will now notice that everytime *this* is logged we see the Person class printed and most importantly that *this* is no longer undefined inside of the forEach function and 'name' is also no longer undefined. 
 
+``` 
+this is: Person { name: 'Covalence', cities: [ 'Nashville', 'Bermingham' ] }this is: Person { name: 'Covalence', cities: [ 'Nashville', 'Bermingham' ] }
+Covalence has lived at Nashville
+this is: Person { name: 'Covalence', cities: [ 'Nashville', 'Bermingham' ] }
+Covalence has lived at Bermingham
+```
 Cool stuff but why does this work right?
 
 ## HERES WHY
@@ -109,28 +115,28 @@ Then we called the printPlacesLived method on the person object, still maintaini
 Inside the printPlacesLived method we invoked the forEach function by using the object this.cities, resulting in losing the reference for *this*.
 So when we tried to access this.name it returned an error because the forEach function was invoked by this.cities. 
 
-##### How did the arrow function fix this? ****
+#### How did the arrow function fix this? ****
 The arrow function circumvents the rules of *this* specified for ES5 and the reference for *this* is no longer based on how the function is called and is instead based on the functions surrounding context. 
 So when we accessed this.name this time, the reference for *this* was not lost because the enclosed scope of the function included the Person class and the this.name object. 
 
 ## GUIDELINE TO FOLLOW WHEN WORKING WITH THIS
 
-### Questions to ask when determining this 
-*In order of precedence.*
+> ### Questions to ask when determining this 
+>*In order of precedence.*
 
-#### For Regular Functions:
-```
-1. If the new keyword is used then *this* will reference the newly created object.
-let person = new Person();
-2. If call or apply is used then *this* will reference the explicitly specified object.
-let person = Person.call(obj);
-3. If a function is called on a context object then *this* is that context object.
-obj.printPlacesLived();
-4. Otherwise, *this* will reference the global object or if in strict mode, will reference undefined.
-let person = Person();
-```
+>#### For Regular Functions:
+>```
+>1. If the new keyword is used then *this* will reference the newly created object.
+>let person = new Person();
+>2. If call or apply is used then *this* will reference the explicitly specified object.
+>let person = Person.call(obj);
+>3. If a function is called on a context object then *this* is that context object.
+>obj.printPlacesLived();
+>4. Otherwise, *this* will reference the global object or if in strict mode, will reference undefined.
+>let person = Person();
+>```
 
-#### For Arrow Functions: 
-```
-1. The reference for *this* will be based on the context of the enclosing lexical scope.
-```
+>#### For Arrow Functions: 
+>```
+>1. The reference for *this* will be based on the context of the enclosing lexical scope.
+>```
