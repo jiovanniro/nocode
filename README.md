@@ -121,8 +121,8 @@ So when we accessed this.name this time, the reference for *this* was not lost b
 
 ## GUIDELINE TO FOLLOW WHEN WORKING WITH THIS
 
-> ### Questions to ask when determining this 
->*In order of precedence.*
+### Questions to ask when determining this:
+*In order of precedence.*
 
 >#### For Regular Functions:
 >```
