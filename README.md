@@ -29,7 +29,7 @@ The printPlacesLived method should loop through each city stored in this.cities 
 
 I'll be using Covalence as the "person" for the example but feel free to make yours more personal. 
 
-```
+```javascript
 class Person {
     constructor() {
         this.name = 'Covalence';
@@ -48,7 +48,9 @@ let person = new Person();
 person.printPlacesLived();
 ```
 
-Yep. That's it. You should now see the following output:
+Yep. That's it. In the terminal type: node scripts.js 
+
+You should now see the following output:
 
 ```
 C:\Users\Nicot\Documents\Covalence\Labs\this-arrow\scripts.js:10
@@ -63,7 +65,7 @@ Ok now that you had some time to think or play around with the code lets begin t
 
 Your printPlacesLived method should now like this:
 
-``` 
+```javascript
     printPlacesLived() {
         console.log('this is:', this); //Person object
         this.cities.forEach(function(city) {
@@ -72,6 +74,7 @@ Your printPlacesLived method should now like this:
         });
     }
 ```
+In the terminal type: node scripts.js 
 
 Notice that the first time we log this the Person class is printed but when we log this inside of the forEach function, this is undefined and so is 'name'.
 
@@ -83,7 +86,7 @@ Change your ES5 forEach function to an ES6 arrow function.
 
 Your scripts.js file should now look like this: 
 
-```
+```javascript
     printPlacesLived() {
         console.log('this is:', this); //Person object
         this.cities.forEach((city) => {
@@ -92,7 +95,10 @@ Your scripts.js file should now look like this:
         });
     }
 ```
-In the terminal you notice that everytime this is logged we see the Person class printed and most importantly that this is no longer undefined inside of the forEach function and 'name' is also no longer undefined. 
+
+In the terminal type: node scripts.js 
+
+You will now notice that everytime this is logged we see the Person class printed and most importantly that this is no longer undefined inside of the forEach function and 'name' is also no longer undefined. 
 
 Cool stuff but why does this work right?
 
@@ -111,10 +117,10 @@ So when we accessed this.name this time, the reference for this was not lost bec
 
 ## GUIDELINE TO FOLLOW WHEN WORKING WITH THIS
 
-**** Questions to ask when determining this **** 
+### Questions to ask when determining this 
 In order of precedence. 
 
-For Regular Functions:
+#### For Regular Functions:
 ```
 1. If the new keyword is used then this will reference the newly created object.
 var person = new Person();
@@ -126,8 +132,7 @@ obj.printPlacesLived();
 var person = Person();
 ```
 
-```
-For Arrow Functions: 
+#### For Arrow Functions: 
 ```
 1. The reference for this will be based on the context of the enclosing lexical scope.
 ```
