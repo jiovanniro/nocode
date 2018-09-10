@@ -6,7 +6,7 @@
 
 ## Goals 
 
-Create 
+**Create**
 
     /api/goals/
 
@@ -19,7 +19,7 @@ Create
     });
     ```
 
-    **goal** is expected to be an object with the following properties:  
+    *goal* is expected to be an object with the following properties:  
 
     ```
     {
