@@ -1,53 +1,79 @@
-# No Code
+Create 
 
-No code is the best way to write secure and reliable applications. Write nothing; deploy nowhere.
+    /api/goals/
 
-## Getting Started
+    Example of http request to create a goal
+    ```
+    this.http.post('/api/goals/', JSON.stringify(goal), {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+    ```
 
-Start by not writing any code.
+    **goal** is expected to be an object with the following properties:  
 
-```
+    ```
+    {
+        "user_id": "a693a1d3-53da-4ac7-9ac3-c4f91a4a7089", 
+        "longtermgoal": "Album of the year", 
+        "vote": 0,
+        "shorttermgoals": [
+            {"goal": "short-term 1", "completed": 0},
+            {"goal": "short-term 2", "completed": 0},
+            {"goal": "short-term 3", "completed": 0}
+        ]
+    }
+    ```
 
-```
+Get
 
-This is just an example application, but imagine it doing anything you want. Adding new features is easy too:
+    /api/goals/
 
-```
+    Example of http request to get goals
+    ```
+    this.http.get('/api/goals/');
+    ```
 
-```
+    /api/goals/id
 
-The possibilities are endless.
+    Example of http request to get a goal
+    ```
+    this.http.get('/api/goal/id');
+    ```
 
-### Building the Application
+    The returned data will be an array of objects. Each object representing a long-term goal, vote total, and associated short-term goals.
 
-Now that you have not done anything it's time to build your application:
+Update 
 
-```
+    /api/goals/id
 
-```
+    Example of http request to update a goal
+    ```
+    this.http.patch('/api/goals/id', JSON.stringify(goal), {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+    ```
 
-Yep. That's it. You should see the following output:
+    **goal** is expected to be an object with the following properties:  
 
-```
+    ```
+    {
+        "longtermgoal": {"id": "id", "goal": "a new goal"}, 
+        "shorttermgoals": [
+            {"id": "id", "goal": "short-term 1"},
+            {"id": "id", "goal": "short-term 2"},
+            {"id": "id", "goal": "short-term 3"},
+        ]
+    }
+    ```
 
-```
+Delete 
 
-### Deploying
+    /api/goals/id
 
-While you still have not done anything it's time to deploy your application. By running the following command you can deploy your application absolutely nowhere.
-
-```
-
-```
-
-It's that simple. And when it comes time to scale the application, all you have to do is:
-
-```
-
-```
-
-I know right?
-
-## Contributing
-
-You don't.
+    ```
+    this.http.delete('/api/goals/id');
+    ```
