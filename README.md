@@ -1,12 +1,12 @@
 # TN Plan Backend 
 
-###Getting Started 
+### Getting Started 
  1. `npm install`
  2. `npm run dev`.
 
-###Goals 
+### Goals 
 
-    ####Create 
+    #### Create 
 
     /api/goals/
 
@@ -34,7 +34,7 @@
     }
     ```
 
-    ####Get
+    #### Get
 
     /api/goals/
 
@@ -52,7 +52,7 @@
 
     The returned data will be an array of objects. Each object representing a long-term goal, vote total, and associated short-term goals.
 
-    ####Update 
+    #### Update 
 
     /api/goals/id
 
@@ -78,7 +78,7 @@
     }
     ```
 
-    ####Delete 
+    #### Delete 
 
     /api/goals/id
 
@@ -87,9 +87,9 @@
     ```
 
 
-###Assets
+### Assets
 
-    ####Create 
+    #### Create 
 
     /api/goals/
 
@@ -116,7 +116,7 @@
     }
     ```
 
-    ####Get
+    #### Get
 
     /api/assets/
 
@@ -134,7 +134,7 @@
 
     The returned data will be an array of object(s). Each object representing a asset, and associated asset category.
 
-    ####Update 
+    #### Update 
 
     /api/assets/id
 
@@ -156,7 +156,7 @@
     }
     ```
 
-    ####Delete 
+    #### Delete 
 
     /api/assets/id
 
@@ -165,9 +165,9 @@
     ```
 
 
-###Votes
+### Votes
 
-    ####Update 
+    #### Update 
 
     /api/votes/id
 
